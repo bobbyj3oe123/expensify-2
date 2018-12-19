@@ -12,7 +12,7 @@ module.exports = (env) => {
     entry: './src/app.js',
     output: {
       //this has to be the absolute path which means from the very beginning where this file starts
-      path: path.resolve(__dirname, 'public'),
+      path: path.resolve(__dirname, 'public', 'dist'),
       filename: 'bundle.js'
     },
     mode: 'none',
@@ -52,7 +52,8 @@ module.exports = (env) => {
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
       contentBase: path.resolve(__dirname, 'public'),
-      historyApiFallback: true
+      historyApiFallback: true,
+      publicPath: '/dist/'
     }
   };
 }
